@@ -7,7 +7,7 @@
     android:clickable="false"
     android:focusable="true"
     android:elevation="64dp"
-    app:cardCornerRadius="14.5sp">
+    app:cardCornerRadius="@dimen/cardview_corner_radius">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,14 +40,14 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/view_margin_general">
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="5"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 style="@style/CardSubtitleTextStyle"
-                android:layout_margin="@dimen/view_margin_general"
+                android:layout_margin="@dimen/subtitle_margin_general"
                 android:text="@string/card_subtitle"
                 />
             <ToggleButton
