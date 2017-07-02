@@ -46,7 +46,7 @@ public class ChapterCardView {
         });
 
         //setup default card image
-        mCardImg.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.testimage));
+        mCardImg.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.testimage2));
 
     }
     //endregion
