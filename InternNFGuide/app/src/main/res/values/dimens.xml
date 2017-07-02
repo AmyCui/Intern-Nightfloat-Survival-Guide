@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="maxImageHeight">200dp</dimen>
+    <dimen name="view_margin_general">8dp</dimen>
+    <dimen name="toolbar_buttons_size">24dp</dimen>
+
+    <dimen name="list_side_margin">16dp</dimen>
+    <dimen name="list_top_margin">8dp</dimen>
+    <dimen name="list_toolbar_side_margin">0dp</dimen>
+
+    <integer name="main_cardview_column_count">1</integer>
+    <integer name="subsession_list_column_count">1</integer>
+
+</resources>
