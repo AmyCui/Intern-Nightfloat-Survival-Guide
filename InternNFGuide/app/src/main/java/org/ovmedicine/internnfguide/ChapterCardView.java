@@ -54,10 +54,10 @@ public class ChapterCardView {
 
 
     //region public methods
-    public void setSubsessionList(String listData, String listClickData){
+    public void setSubsessionList(final String listData, String listClickData){
         if(listData != null) {
             //parse list data
-            ArrayList subsessionList = parseStringToList(listData);
+            final ArrayList subsessionList = parseStringToList(listData);
             ArrayList subsessionURLList = new ArrayList();
             if(listClickData != null)
                 subsessionURLList = parseStringToList(listClickData);
@@ -82,7 +82,9 @@ public class ChapterCardView {
                     if(finalSubsessionURLList != null && finalSubsessionURLList.size() > position)
                         url =  (String)finalSubsessionURLList.get(position);
 
-                    intent.putExtra(Intent.EXTRA_TEXT, url);
+                    String listItemText = (String) subsessionList.get(position);
+                    // send list item text, current chapter section list, and the url to the details view
+                    intent.putExtra(Intent.EXTRA_TEXT, new String[]{listItemText, listData,url});
                     mContext.startActivity(intent);
                 }
             });
