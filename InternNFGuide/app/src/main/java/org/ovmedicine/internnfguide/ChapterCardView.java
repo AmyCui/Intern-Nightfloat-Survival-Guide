@@ -1,6 +1,7 @@
 package org.ovmedicine.internnfguide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,24 +58,32 @@ public class ChapterCardView {
         if(listData != null) {
             //parse list data
             ArrayList subsessionList = parseStringToList(listData);
-            //ArrayList subsessionURLList = parseStringToList(listClickData);
+            ArrayList subsessionURLList = new ArrayList();
+            if(listClickData != null)
+                subsessionURLList = parseStringToList(listClickData);
 
             //create adapter
             ArrayAdapter adapter = new ArrayAdapter<String>(mContext,
                     android.R.layout.simple_list_item_1,
                     subsessionList);
             if (mSubsessionsList != null) {
+                //set adapter
                 mSubsessionsList.setAdapter(adapter);
+                //update list height to fit all list content
                 setListViewHeightBasedOnItems(mSubsessionsList);
-
-                //adapter.notifyDataSetChanged();
-
             }
-
+            // set list item onclicklistener to launch details view
+            final ArrayList finalSubsessionURLList = subsessionURLList;
             mSubsessionsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //TODO: open the listClickData link
+                    Intent intent = new Intent(mContext, DetailsActivity.class);
+                    String url = "";
+                    if(finalSubsessionURLList != null && finalSubsessionURLList.size() > position)
+                        url =  (String)finalSubsessionURLList.get(position);
+
+                    intent.putExtra(Intent.EXTRA_TEXT, url);
+                    mContext.startActivity(intent);
                 }
             });
         }
