@@ -5,6 +5,10 @@ package org.ovmedicine.internnfguide;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AppData {
 
@@ -46,15 +50,18 @@ public class AppData {
                     "Pneumothorax/Tension Pneumothorax," +
                     "Esophageal Perforation/Boerhaave’s Syndrome",
             "Overview," +
-                    "Upper Airway\n• Foreign Body\n• Anaphylaxis\n •Angioedema," +
-                    "Pulmonary\n• Asthma/COPD Exacerbation\n• Pulmonary Embolism\n• Pneumonia\n• Pulmonary Edema\n• Pneumothorax," +
-                    "Cardiac\n• ACS\n• CHF Exacerbation\n• Arrhythmia," +
-                    "Others\n• Sepsis\n\tDKA\n• Anemia\n• Alveolar Hemorrhage",
+                    "Upper Airway,"+
+                    "Pulmonary,"+
+                    "Cardiac,"+
+                    "Others",
             "Temperature," +
-                    "Hypertension\n\tOverview\n\tHypertensive Urgency\n\tHypertensive Emergency," +
-                    "Hypotension\n\tOverview\n\tHypovolemic\n\tCardiogenic\n\tDistributive\n\tObstructive," +
-                    "Tachycardia\n\tOverview\n\tSinus Tachycardia\n\tSVT (AVNRT\\/AVRT)\n\tAtrial Tachycardia\n\tAtrial Fibrillation/Flutter\n\tMultifocal Atrial Tachycardia\n\tWide Complex Tachycardia," +
-                    "Bradycardia\n\tOverview\n\tSinus Bradycardia\n\tAV Node Block\n\tLow O2 Saturation\n\tTachypnea",
+                    "Hypertension," +
+                    "Hypotension," +
+                    "Tachycardia," +
+                    "Bradycardia," +
+                    "Low O2 Saturation," +
+                    "Tachypnea",
+
             "Overview," +
                     "Neutropenic Fever",
             "Overview",
@@ -67,7 +74,7 @@ public class AppData {
             "Constipation," +
                     "Nausea",
             "Overview," +
-                    "Pain Medication Tidbits\n\tHow to Titrate Pain Medication\n\tHow to Convert Pain Medications Between Routes/Types\n\tPCA Pump\n\tAbdominal Pain/Dyspepsia\n\tHeadache\n",
+                    "Pain Medication Tidbits",
             "Overview",
             "Overview",
             "Overview",
@@ -99,4 +106,18 @@ public class AppData {
                     "Transfusion,"
     ));
 
+   public final static Map<String,String> SectionsLookupMap;
+    static {
+        SectionsLookupMap = new HashMap<String,String>();
+        SectionsLookupMap.put("Upper Airway","Foreign Body,Anaphylaxis,Angioedema");
+        SectionsLookupMap.put("Pulmonary","Asthma/COPD Exacerbation,Pulmonary Embolism,Pneumonia,Pulmonary Edema,Pneumothorax");
+        SectionsLookupMap.put("Cardiac","ACS,CHF Exacerbation,Arrhythmia");
+        SectionsLookupMap.put("Others","Sepsis,DKA,Anemia,Alveolar Hemorrhage");
+        SectionsLookupMap.put("Hypertension","Overview,Hypertensive Urgency,Hypertensive Emergency");
+        SectionsLookupMap.put("Hypotension","Overview,Hypovolemic,Cardiogenic,Distributive,Obstructive");
+        SectionsLookupMap.put("Tachycardia","Overview,Sinus Tachycardia,SVT (AVNRT/AVRT),Atrial Tachycardia,Atrial Fibrillation/Flutter,Multifocal Atrial Tachycardia,Wide Complex Tachycardia");
+        SectionsLookupMap.put("Bradycardia","Overview,Sinus Bradycardia,AV Node Block");
+        SectionsLookupMap.put("Pain Medication Tidbits","How to Titrate Pain Medication,How to Convert Pain Medications Between Routes/Types,PCA Pump,Abdominal Pain/Dyspepsia,Headache");
+
+    }
 }
