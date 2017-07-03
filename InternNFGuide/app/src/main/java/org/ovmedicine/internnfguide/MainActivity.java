@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             String[] cardData = new String[MainGridAdapter.MainGridCardItems.values().length];
             cardData[MainGridAdapter.MainGridCardItems.card_title.ordinal()] = AppData.ChapterTitlesList.get(i);
             cardData[MainGridAdapter.MainGridCardItems.card_subsession_list.ordinal()] = AppData.SubsessionsTitleList.get(i);
+            cardData[MainGridAdapter.MainGridCardItems.card_subsession_url_list.ordinal()] = AppData.SubsessionsUrlList.get(i);
             result.add(cardData);
         }
 
