@@ -2,4 +2,7 @@
     <string name="app_name">Intern Nightfloat Survival Guide</string>
     <string name="card_subtitle">Sections</string>
     <string name="nav_menu_show_subsection_title">Sections</string>
+    <string name="disclaimer_title">Disclaimer</string>
+    <string name="disclaimer_text">This is a disclaimer. Press accept to use app.</string>
+    <string name="disclaimer_setting_key">disclaimer_accepted</string>
 </resources>
