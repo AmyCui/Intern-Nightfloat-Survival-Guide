@@ -6,6 +6,8 @@
     <dimen name="toolbar_buttons_size">24dp</dimen>
     <dimen name="cardview_corner_radius">12sp</dimen>
 
+    <dimen name="detail_margin">0dp</dimen>
+
     <dimen name="list_side_margin">16dp</dimen>
     <dimen name="list_top_margin">16dp</dimen>
     <dimen name="list_toolbar_side_margin">0dp</dimen>
