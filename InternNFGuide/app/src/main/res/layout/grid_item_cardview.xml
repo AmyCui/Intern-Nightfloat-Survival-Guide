@@ -12,12 +12,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <!-- Card Image and Chapter Title-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/card_image"
                 android:layout_width="match_parent"
@@ -25,6 +26,7 @@
                 android:scaleType="centerCrop"
                 android:maxHeight="@dimen/maxImageHeight"
                 android:adjustViewBounds="true" />
+
             <TextView
                 android:id="@+id/chapter_title"
                 android:layout_width="match_parent"
@@ -34,13 +36,16 @@
                 android:layout_centerHorizontal="false"
                 android:layout_margin="@dimen/view_margin_general"
                 tools:text="Chapter Title Text"/>
+
         </RelativeLayout>
+
         <!-- Expand button bar-->
         <LinearLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="5"
@@ -48,8 +53,8 @@
                 android:layout_gravity="center_vertical"
                 style="@style/CardSubtitleTextStyle"
                 android:layout_margin="@dimen/subtitle_margin_general"
-                android:text="@string/card_subtitle"
-                />
+                android:text="@string/card_subtitle"/>
+
             <ToggleButton
                 android:id="@+id/card_expand_button"
                 android:layout_width="0dp"
@@ -59,21 +64,23 @@
                 android:layout_margin="@dimen/view_margin_general"
                 style="@style/toggleButton"
                 android:background="@drawable/expand_toggle_bkg"/>
+
         </LinearLayout>
-        <!-- Expandable Session with Subsession Titles -->
+
+        <!-- Expandable Section with Subsection Titles -->
         <FrameLayout
             android:id="@+id/card_expandable_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <GridView
                 android:id="@+id/card_subsessions_listview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:stretchMode="columnWidth"
+                android:layout_marginBottom="@dimen/cardview_sections_bottom_margin"
                 android:numColumns="@integer/subsession_list_column_count"
-                tools:listitem="@android:layout/simple_list_item_1">
-
-            </GridView>
+                tools:listitem="@android:layout/simple_list_item_1" />
 
         </FrameLayout>
 

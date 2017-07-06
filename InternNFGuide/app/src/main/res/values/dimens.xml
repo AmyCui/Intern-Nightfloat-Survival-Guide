@@ -5,6 +5,7 @@
     <dimen name="subtitle_margin_general">16dp</dimen>
     <dimen name="toolbar_buttons_size">24dp</dimen>
     <dimen name="cardview_corner_radius">12sp</dimen>
+    <dimen name="cardview_sections_bottom_margin">20dp</dimen>
 
     <dimen name="detail_margin">0dp</dimen>
 

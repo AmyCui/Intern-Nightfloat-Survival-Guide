@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -38,7 +39,7 @@ public class ChapterCardView {
 
         setExpandableLayoutVisiblity();
 
-        //set up expand more/less toggle button for subsessions listview
+        //set up expand more/less toggle button for subsections listview
         mExpandToggleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
