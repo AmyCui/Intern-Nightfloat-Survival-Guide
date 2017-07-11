@@ -1,5 +1,11 @@
 package org.ovmedicine.internnfguide;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.grid_view) GridView mChaptersGrid;
     private MainGridAdapter mGridAdapter;
+    AlertDialog mDisclaimerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +34,57 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         ArrayList data = getAppData();
-
         mGridAdapter = new MainGridAdapter(this, R.layout.grid_item_cardview, data);
-
         mChaptersGrid.setAdapter(mGridAdapter);
 
+        displayDisclaimer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //display if hasn't accepted
+        displayDisclaimer( );
+    }
+
+    private void displayDisclaimer() {
+        AlertDialog.Builder builder;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(this);
+        }
+        builder.setTitle(getResources().getString(R.string.disclaimer_title))
+                .setMessage(getResources().getString(R.string.disclaimer_text))
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue and remember the user's setting
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        preferences.edit().putBoolean(getString(R.string.disclaimer_setting_key), true).apply();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Remember the user's setting
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        preferences.edit().putBoolean(getString(R.string.disclaimer_setting_key), false).apply();
+                        // quit app
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert);
+        if(mDisclaimerDialog == null)
+            mDisclaimerDialog = builder.create();
+
+        //get disclaimer preference
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean disclaimer_accepted = preferences.getBoolean(getResources().getString(R.string.disclaimer_setting_key),false);
+        if(!disclaimer_accepted && !mDisclaimerDialog.isShowing())
+            mDisclaimerDialog.show();
     }
 
     private ArrayList getAppData(){
