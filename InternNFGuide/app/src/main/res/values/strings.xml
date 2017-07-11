@@ -3,16 +3,14 @@
     <string name="app_name_actionbar_title">Nightfloat Survival Guide</string>
     <string name="card_subtitle">Sections</string>
     <string name="nav_menu_show_subsection_title">Sections</string>
-
+  
     <string name="disclaimer_title">Disclaimer</string>
     <string name="disclaimer_text">
-
         This mobile app is intended for informational, educational and research purposes only.
         It is not, and is not intended, for use in the diagnosis of disease or other conditions,
         or in the cure, mitigation, treatment, or prevention of disease. Health care providers
         should exercise their own independent clinical judgment when using the app in
         conjunction with patient care.
-
     </string>
     <string name="disclaimer_setting_key">disclaimer_accepted</string>
 </resources>

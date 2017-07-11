@@ -33,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        //set up cards
         ArrayList data = getAppData();
         mGridAdapter = new MainGridAdapter(this, R.layout.grid_item_cardview, data);
         mChaptersGrid.setAdapter(mGridAdapter);
 
-        displayDisclaimer();
+        //display if hasn't accepted
+        displayDisclaimer( );
     }
 
     @Override
@@ -45,6 +47,22 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         //display if hasn't accepted
         displayDisclaimer( );
+    }
+
+    private ArrayList getAppData(){
+        ArrayList result = new ArrayList();
+
+        int numOfChapters = AppData.ChapterTitlesList.size();
+
+        for(int i=0 ; i<numOfChapters; i++){
+            String[] cardData = new String[MainGridAdapter.MainGridCardItems.values().length];
+            cardData[MainGridAdapter.MainGridCardItems.card_title.ordinal()] = AppData.ChapterTitlesList.get(i);
+            cardData[MainGridAdapter.MainGridCardItems.card_subsession_list.ordinal()] = AppData.SubsessionsTitleList.get(i);
+            cardData[MainGridAdapter.MainGridCardItems.card_subsession_url_list.ordinal()] = AppData.SubsessionsUrlList.get(i);
+            result.add(cardData);
+        }
+
+        return result;
     }
 
     private void displayDisclaimer() {
@@ -87,19 +105,4 @@ public class MainActivity extends AppCompatActivity {
             mDisclaimerDialog.show();
     }
 
-    private ArrayList getAppData(){
-        ArrayList result = new ArrayList();
-
-        int numOfChapters = AppData.ChapterTitlesList.size();
-
-        for(int i=0 ; i<numOfChapters; i++){
-            String[] cardData = new String[MainGridAdapter.MainGridCardItems.values().length];
-            cardData[MainGridAdapter.MainGridCardItems.card_title.ordinal()] = AppData.ChapterTitlesList.get(i);
-            cardData[MainGridAdapter.MainGridCardItems.card_subsession_list.ordinal()] = AppData.SubsessionsTitleList.get(i);
-            cardData[MainGridAdapter.MainGridCardItems.card_subsession_url_list.ordinal()] = AppData.SubsessionsUrlList.get(i);
-            result.add(cardData);
-        }
-
-        return result;
-    }
 }
