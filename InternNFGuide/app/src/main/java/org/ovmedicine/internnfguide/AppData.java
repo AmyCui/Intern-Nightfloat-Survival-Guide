@@ -18,7 +18,7 @@ public class AppData {
             "Chest Pain",
             "Shortness of Breath",
             "Abnormal Vital Signs",
-            "Fever (full fever work up/FFWU)",
+            "Fever",
             "Altered Mental Status",
             "Bleeding",
             "Constipation/Nausea",

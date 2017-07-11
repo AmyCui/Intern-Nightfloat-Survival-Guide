@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
     tools:context="org.ovmedicine.internnfguide.MainActivity">
+
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
@@ -14,7 +16,8 @@
         android:paddingLeft="@dimen/list_side_margin"
         android:paddingRight="@dimen/list_side_margin"
         android:paddingTop="@dimen/list_top_margin"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"
         android:numColumns="@integer/main_cardview_column_count"
         />
-
 </FrameLayout>
