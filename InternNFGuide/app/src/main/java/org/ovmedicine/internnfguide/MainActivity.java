@@ -2,6 +2,7 @@ package org.ovmedicine.internnfguide;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.GridView;
 
 import java.lang.reflect.Array;
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Support Action Bar
+        getSupportActionBar().setTitle(R.string.app_name_actionbar_title);
+
         ButterKnife.bind(this);
 
         ArrayList data = getAppData();
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         mGridAdapter = new MainGridAdapter(this, R.layout.grid_item_cardview, data);
 
         mChaptersGrid.setAdapter(mGridAdapter);
+
     }
 
     private ArrayList getAppData(){
@@ -44,5 +49,4 @@ public class MainActivity extends AppCompatActivity {
 
         return result;
     }
-
 }

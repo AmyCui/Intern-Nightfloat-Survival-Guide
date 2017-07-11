@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Intern Nightfloat Survival Guide</string>
+    <string name="app_name">NF Survival Guide</string>
+    <string name="app_name_actionbar_title">Nightfloat Survival Guide</string>
     <string name="card_subtitle">Sections</string>
     <string name="nav_menu_show_subsection_title">Sections</string>
 </resources>

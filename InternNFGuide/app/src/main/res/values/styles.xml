@@ -9,7 +9,7 @@
     </style>
 
     <style name="CardTitleTextStyle">
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">"sans-serif-medium" </item>
     </style>
